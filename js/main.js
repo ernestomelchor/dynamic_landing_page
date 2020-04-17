@@ -4,7 +4,7 @@ const time = document.getElementById("time"),
   name = document.getElementById("name"),
   focus = document.getElementById("focus");
 
-// Show time
+// Show Time
 
 function showTime() {
   let today = new Date(),
@@ -31,5 +31,26 @@ function addZero(n) {
   return (parseInt(n, 10) < 10 ? "0" : "") + n;
 }
 
+// Set Background and Greeting
+function setBackgroundGreeting() {
+  let today = new Date(),
+    hour = today.getHours();
+
+  if (hour < 12) {
+    // Then we know it's Morning
+    document.body.style.backgroundImage = "url('./img/morning.jpg')";
+    greeting.textContent = "Good Morning, ";
+  } else if (hour < 18) {
+    // Then we know it's the Afternoon
+    document.body.style.backgroundImage = "url('./img/afternoon.jpg')";
+    greeting.textContent = "Good Afternoon, ";
+  } else {
+    // It's Evening
+    document.body.style.backgroundImage = "url('./img/night.jpg')";
+    greeting.textContent = "Good Evening, ";
+    document.body.style.color = "white";
+  }
+}
 // Run
 showTime();
+setBackgroundGreeting();
