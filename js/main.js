@@ -48,6 +48,7 @@ function setBackgroundGreeting() {
     // Then we know it's the Afternoon
     document.body.style.backgroundImage = "url('./img/afternoon.jpg')";
     greeting.textContent = "Good Afternoon";
+    document.body.style.color = "white";
   } else {
     // It's Evening
     document.body.style.backgroundImage = "url('./img/night.jpg')";
