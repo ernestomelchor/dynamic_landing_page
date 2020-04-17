@@ -4,6 +4,10 @@ const time = document.getElementById("time"),
   name = document.getElementById("name"),
   focus = document.getElementById("focus");
 
+// Options
+
+const showAmPm = true;
+
 // Show Time
 
 function showTime() {
@@ -22,7 +26,7 @@ function showTime() {
   //Output Time
   time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(
     sec
-  )}`;
+  )}${showAmPm ? amPm : ""}`;
 
   setTimeout(showTime, 1000);
 }
@@ -39,18 +43,70 @@ function setBackgroundGreeting() {
   if (hour < 12) {
     // Then we know it's Morning
     document.body.style.backgroundImage = "url('./img/morning.jpg')";
-    greeting.textContent = "Good Morning, ";
+    greeting.textContent = "Good Morning";
   } else if (hour < 18) {
     // Then we know it's the Afternoon
     document.body.style.backgroundImage = "url('./img/afternoon.jpg')";
-    greeting.textContent = "Good Afternoon, ";
+    greeting.textContent = "Good Afternoon";
   } else {
     // It's Evening
     document.body.style.backgroundImage = "url('./img/night.jpg')";
-    greeting.textContent = "Good Evening, ";
+    greeting.textContent = "Good Evening";
     document.body.style.color = "white";
   }
 }
+
+// Get Name
+function getName() {
+  if (localStorage.getItem("name") === null) {
+    name.textContent = "[Enter Name]";
+  } else {
+    name.textContent = localStorage.getItem("name");
+  }
+}
+
+// Set Name
+function setName(event) {
+  if (event.type === "keypress") {
+    // Make sure Enter is pressed
+    if (event.which === 13 || event.keyCode === 13) {
+      localStorage.setItem("name", event.target.innerText);
+      name.blur();
+    }
+  } else {
+    localStorage.setItem("name", event.target.innerText);
+  }
+}
+
+// Get Focus
+function getFocus() {
+  if (localStorage.getItem("focus") === null) {
+    focus.textContent = "[Enter Focus]";
+  } else {
+    focus.textContent = localStorage.getItem("focus");
+  }
+}
+
+// Set Focus
+function setFocus(event) {
+  if (event.type === "keypress") {
+    // Make sure Enter is pressed
+    if (event.which === 13 || event.keyCode === 13) {
+      localStorage.setItem("focus", event.target.innerText);
+      focus.blur();
+    }
+  } else {
+    localStorage.setItem("focus", event.target.innerText);
+  }
+}
+
+name.addEventListener("keypress", setName);
+name.addEventListener("blur", setName);
+focus.addEventListener("keypress", setFocus);
+focus.addEventListener("blur", setFocus);
+
 // Run
 showTime();
 setBackgroundGreeting();
+getName();
+getFocus();

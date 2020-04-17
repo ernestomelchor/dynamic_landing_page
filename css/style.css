@@ -4,6 +4,8 @@
   padding: 0;
 }
 body {
+  background-size: cover;
+  overflow: hidden;
   font-family: "Roboto Slab", serif;
   display: flex;
   flex-direction: column;
