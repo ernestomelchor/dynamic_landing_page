@@ -2,6 +2,7 @@
 const time = document.getElementById("time"),
   greeting = document.getElementById("greeting"),
   name = document.getElementById("name"),
+  question = document.getElementById("question"),
   focus = document.getElementById("focus");
 
 // Options
@@ -40,7 +41,17 @@ function setBackgroundGreeting() {
   let today = new Date(),
     hour = today.getHours();
 
-  if (hour < 12) {
+  if (hour < 4) {
+    // Then we know it's past Midnight
+    document.body.style.backgroundImage = "url('./img/midnight.jpg')";
+    greeting.textContent = "It's Past Midnight";
+    question.textContent = "What is Your Main Focus Right Now?";
+    document.body.style.color = "white";
+    // Then we know it's Dawn
+  } else if (hour < 6) {
+    document.body.style.backgroundImage = "url('./img/dawn.jpg')";
+    greeting.textContent = "Welcome to A New Day";
+  } else if (hour < 12) {
     // Then we know it's Morning
     document.body.style.backgroundImage = "url('./img/morning.jpg')";
     greeting.textContent = "Good Morning";
