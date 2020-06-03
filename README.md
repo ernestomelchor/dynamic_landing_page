@@ -1,1 +1,1 @@
-# dynamic_landing_page
+This is a dynamic landing page that resembles the Momentum Chrome extension. It allows a user to enter their name in the field provided along with a major focus for the day. It is a way to keep yourself accountable to your goals on a daily basis. The background image changes depending on the time of day (morning, afternoon, evening, midnight, dawn). It was built using vanilla JavaScript, HTML5, and CSS. A special shoutout to Brad Traversy for providing the inspiration behind this project.
