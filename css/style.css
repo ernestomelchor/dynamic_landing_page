@@ -1,17 +1,17 @@
 * {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 3 auto;
   padding: 0;
   width: 100%;
 }
 body {
   background-size: cover;
   overflow: hidden;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   height: 100vh;
   color: black;
@@ -19,15 +19,36 @@ body {
 
 #time {
   font-size: 8rem;
+  width: auto;
+}
+
+#greeting {
+  width: auto;
+  font-size: 2.5rem;
 }
 
 h1 {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  width: auto;
 }
-
 h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  width: auto;
+}
+#name {
   margin-bottom: 0.5rem;
   opacity: 0.6;
+  font-size: 2.5rem;
+  width: auto;
+}
+
+#focus {
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+  font-size: 2rem;
+  width: auto;
 }
 
 @media (max-width: 700px) {
